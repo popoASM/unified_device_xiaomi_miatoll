@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+TARGET_BOARD_PLATFORM := atoll
+
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
@@ -237,10 +239,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
-
 # Media
 PRODUCT_PACKAGES += \
     libavservices_minijail \
@@ -316,9 +314,7 @@ PRODUCT_PACKAGES += \
     WifiOverlay
 
 PRODUCT_PACKAGES += \
-    SM6250Aperture \
-    SM6250LineageDialer \
-    SM6250LineageSDK
+    SM6250Aperture
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -443,19 +439,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/xiaomi
 
-# Telephony
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
+# Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.pixel \
     thermal_symlinks
